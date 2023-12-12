@@ -1,4 +1,3 @@
-// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import HomePage from './components/HomePage';
