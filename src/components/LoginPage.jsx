@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const { handleLoginOrRegistration } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     const fakeLoginResponse = {
@@ -21,6 +23,8 @@ const LoginPage = () => {
     if (isAuthenticated) {
       handleLoginOrRegistration(fakeLoginResponse);
       window.alert('Login effettuato con successo.');
+      navigate('/');
+      
     } else {
       window.alert('Autenticazione fallita, controlla email e password.');
     }
